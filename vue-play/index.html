@@ -2,35 +2,37 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>First Vue App</title>
+  <meta charset="utf-8">
+  <title>Vue Playground</title>
 </head>
 
 <body>
-    <div id="app">
-        <h1 v-once>{{ title }}<h1>
-        <p> {{ sayHello() }} - <a v-bind:href="link">Google</a> </p>
-        <hr>
-        <p>{{ finishedLink }}</p>
-    </div>
+  <div id="app">
+    <p>{{ counter }}</p>
+    <button v-on:click="increase" type="button" name="button">Click me</button>
+    <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script type="text/javascript">
-        new Vue({
-            el: "#app",
-            data: {
-                title: "Hello world!",
-                link: "https://google.com",
-                finishedLink: "<a href='https://google.com'>Google</a>"
-            },
-            methods: {
-                sayHello: function() {
-                    this.title = "Hello!";
-                    return this.title;
-                }
-            }
-        })
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        counter: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        increase: function() {
+          this.counter++;
+        },
+        updateCoordinates: function(event){
+          this.x = event.clientX;
+          this.y = event.clientY;
+        }
+      }
+    })
+  </script>
 </body>
 
 </html>
