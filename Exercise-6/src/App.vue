@@ -10,10 +10,3 @@
         <app-footer></app-footer>
     </div>
 </template>
-
-<script>
-</script>
-
-<style>
-
-</style>
