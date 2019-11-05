@@ -12,13 +12,16 @@
     </ul>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item pr-3">
-        <span class="nav-link">End Day</span>
+        <button class="btn btn-primary text-white nav-link" @click="endDay">End Day</button>
       </li>
       <li class="nav-item dropdown pr-3">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a
+          class="nav-link dropdown-toggle"
+          role="button"
+          @click="isDropdownOpen = !isDropdownOpen">
           Save & Load
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" :class="{ show: isDropdownOpen }" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Save Data</a>
           <a class="dropdown-item" href="#">Load Data</a>
           <div class="dropdown-divider"></div>
@@ -37,6 +40,11 @@
 import { mapActions } from 'vuex';
 
 export default {
+  data() {
+    return {
+      isDropdownOpen: false
+    }
+  },
   computed: {
     funds() {
       return this.$store.getters.funds;
