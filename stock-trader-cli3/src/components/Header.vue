@@ -14,11 +14,11 @@
       <li class="nav-item pr-3">
         <button class="btn btn-primary text-white nav-link" @click="endDay">End Day</button>
       </li>
-      <li class="nav-item dropdown pr-3">
+      <li class="nav-item dropdown pr-3" @click="isDropdownOpen = !isDropdownOpen">
         <a
           class="nav-link dropdown-toggle"
           role="button"
-          @click="isDropdownOpen = !isDropdownOpen">
+          >
           Save & Load
         </a>
         <div class="dropdown-menu" :class="{ show: isDropdownOpen }" aria-labelledby="navbarDropdown">
