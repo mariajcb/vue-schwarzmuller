@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="col-sm-6 col-md-4">
-    <div class="card" style="width: 24rem;">
+    <div class="card" style="width: 25rem;">
         <div class="card-header bg-success">
           <h3 class="card-title">
             {{ stock.name }}
