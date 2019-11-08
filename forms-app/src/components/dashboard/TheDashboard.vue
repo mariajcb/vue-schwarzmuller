@@ -5,6 +5,29 @@
   </div>
 </template>
 
+<script type="text/javascript">
+  import axios from 'axios';
+
+  export default {
+    created () {
+      axios.get('/users.json')
+        .then(res => {
+          const data = res.data
+          const users = []
+          for (let key in data) {
+            const user = data[key]
+            user.id = key
+            users.push(user)
+          }
+          console.log(users);
+          this.email=users[0].email
+        })
+        .catch(error => console.log(error))
+    }
+  }
+
+</script>
+
 <style scoped>
   h1, p {
     text-align: center;

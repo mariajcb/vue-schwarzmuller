@@ -3,7 +3,7 @@
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
         <div class="input">
-          <label for="email">Mail</label>
+          <label for="email">E-Mail</label>
           <input
                   type="email"
                   id="email"
@@ -69,6 +69,8 @@
 </template>
 
 <script>
+  import axios from '../../axios-auth';
+
   export default {
     data () {
       return {
@@ -103,6 +105,9 @@
           terms: this.terms
         }
         console.log(formData)
+        axios.post('/users.json', formData)
+          .then(res => console.log(res))
+          .catch(error => console.log(error))
       }
     }
   }
