@@ -5,8 +5,7 @@ import axios from 'axios'
 import router from './router'
 import store from './store'
 
-axios.defaults.baseURL = 'https://forms-app-6620f.firebaseio.com'
-axios.defaults.headers.common['Authorization'] = 'thisisagenerictoken'
+axios.defaults.baseURL = process.env.VUE_APP_FIREBASE_DB_URL
 axios.defaults.headers.get['Accept'] = 'application/json'
 
 

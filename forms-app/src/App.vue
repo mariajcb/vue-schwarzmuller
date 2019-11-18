@@ -11,6 +11,9 @@
     name: 'app',
     components: {
       TheHeader
+    },
+    created() {
+      this.$store.dispatch('tryAutoLogin')
     }
   }
 </script>

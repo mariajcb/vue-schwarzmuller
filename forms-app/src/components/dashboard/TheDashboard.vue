@@ -2,6 +2,7 @@
   <div id="dashboard">
     <h1>That's the dashboard!</h1>
     <p>You should only get here if you're authenticated!</p>
+    <p v-if="email">Your email address is {{ email }}</p>
   </div>
 </template>
 
@@ -9,20 +10,13 @@
   import axios from 'axios';
 
   export default {
+    computed: {
+      email() {
+        return !this.$store.getters.user ? false : this.$store.getters.user.email
+      }
+    },
     created () {
-      axios.get('/users.json')
-        .then(res => {
-          const data = res.data
-          const users = []
-          for (let key in data) {
-            const user = data[key]
-            user.id = key
-            users.push(user)
-          }
-          console.log(users);
-          this.email=users[0].email
-        })
-        .catch(error => console.log(error))
+      this.$store.dispatch('fetchUser')
     }
   }
 
